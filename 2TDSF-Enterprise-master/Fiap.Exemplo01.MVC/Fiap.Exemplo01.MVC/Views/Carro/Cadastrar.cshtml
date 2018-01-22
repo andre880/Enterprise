@@ -1,0 +1,18 @@
+﻿@model Fiap.Exemplo01.MVC.Models.Carro
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar Carro</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Marca)
+        @Html.TextBoxFor(carro => carro.Marca)
+    </div>
+    <input type="submit" value="Gravar"
+           class="btn btn-primary" />
+}
+

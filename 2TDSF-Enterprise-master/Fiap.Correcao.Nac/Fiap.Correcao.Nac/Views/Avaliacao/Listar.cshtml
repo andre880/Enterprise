@@ -1,0 +1,25 @@
+﻿@model List<Fiap.Correcao.Nac.Models.Avaliacao>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Provas</h2>
+
+<table class="table">
+    <tr>
+        <th>Tema</th>
+        <th>Data</th>
+        <th>Sistema</th>
+        <th>Disciplina</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Tema</td>
+            <td>@item.Data.ToShortDateString()</td>
+            <td>@(item.Sistema?"Sim":"Não")</td>
+            <td>@item.Disciplina.Nome</td>
+        </tr>
+    }
+</table>
+

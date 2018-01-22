@@ -1,0 +1,27 @@
+﻿@model List<Fiap.Exemplo04.MVC.Models.Dependente>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Dependentes</h2>
+
+@using (Html.BeginForm("Buscar", "Dependente", FormMethod.Get, new { @class = "form-inline" }))
+{
+    @Html.TextBox("Nome", null, new { @class = "form-control", placeholder = "Digite o nome" })
+    <input type="submit" value="Buscar Dependente Pelo Funcionário" class="btn btn-primary" />
+}
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Funcionário</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Funcionario.Nome</td>
+        </tr>
+    }
+</table>
+

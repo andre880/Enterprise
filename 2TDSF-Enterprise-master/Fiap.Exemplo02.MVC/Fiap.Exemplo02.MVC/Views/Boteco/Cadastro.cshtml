@@ -1,0 +1,43 @@
+﻿@model Fiap.Exemplo02.MVC.Models.Boteco
+
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<h2>Cadastro</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(i => i.Nome)
+        @Html.TextBoxFor(i => i.Nome, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.DataInauguracao)
+        @Html.TextBoxFor(b => b.DataInauguracao, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Endereco)
+        @Html.TextAreaFor(b => b.Endereco, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Consumacao)
+        @Html.TextBoxFor(b => b.Consumacao, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(b => b.MusicaAoVivo)
+        @Html.LabelFor(b => b.MusicaAoVivo)
+    </div>
+    <input type="submit" value="Salvar" class="btn btn-primary" />
+}
+
+@section Scripts{
+    <!--Código JS...-->    
+    <p>Código javascript....</p>
+}

@@ -1,0 +1,29 @@
+﻿@model List<Fiap.Exemplo02.MVC.Models.Boteco>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Boteco</h2>
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Data Inauguração</th>
+        <th>Endereço</th>
+        <th>Musica ao Vivo</th>
+        <th>Consumação</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.DataInauguracao.ToShortDateString()</td>
+            <td>@item.Endereco</td>
+            <td>@item.MusicaAoVivo</td>
+            <td>@item.Consumacao</td>
+        </tr>
+    }
+</table>
+
+

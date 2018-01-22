@@ -1,0 +1,40 @@
+﻿@model List<Fiap.Exemplo03.MVC.Models.Animal>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Animais do Zoo</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>Nome</th>
+        <th>Data Nascimento</th>
+        <th>Espécie</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.DataNascimento.ToShortDateString()</td>
+            <td>@item.Especie</td>
+            <td>
+                @Html.ActionLink(" ","Alterar", 
+                    new { id = item.Id} , 
+                    new { @class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Alterar" })
+                @Html.ActionLink(" ","Excluir",
+                    new { id = item.Id} , 
+                    new { @class = "btn btn-danger btn-sm glyphicon glyphicon-trash" 
+                    , title = "Excluir" , onclick = "return confirm('Deseja excluir?')"})
+            </td>
+        </tr>
+    }
+</table>
+

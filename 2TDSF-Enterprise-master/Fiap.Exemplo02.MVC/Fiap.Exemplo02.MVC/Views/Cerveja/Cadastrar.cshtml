@@ -1,0 +1,39 @@
+﻿@model Fiap.Exemplo02.MVC.Models.Cerveja
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@Ajuda.Message(TempData["msg"] as string)
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Nome)
+        @Html.TextBoxFor(c => c.Nome, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Marca)
+        @Html.TextBoxFor(c => c.Marca, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Preco)
+        @Html.TextBoxFor(c => c.Preco, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Validade)
+        @Html.TextBoxFor(c => c.Validade, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Tipo)
+        @Html.DropDownListFor(c => c.Tipo,
+               ViewBag.tipos as SelectList ,new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(c => c.SemAlcool)
+        @Html.LabelFor(c => c.SemAlcool)
+    </div>
+    @Ajuda.Submit("Salvar")
+}
+
